@@ -1,0 +1,43 @@
+
+<html>
+
+<head>
+    <h1>EECS 348 Lab Three Practice 4</h1>
+</head>
+
+<body>
+    <h2>PHP Multiplication Table</h2>
+    <form method ="post">
+
+        <input type="number" name="mult_table">
+        <input type ="submit">
+    </form>
+    
+
+    <?php
+        if($_SERVER["REQUEST"]== "POST"){
+            $n = intval($_POST["number"]);
+            echo "<table>";
+            echo "<tr><th></th>";
+
+            for ($col =1; $col<=$n; $col++){
+                echo "<th>Col $col</th>";
+            }
+            echo "</tr>";
+
+            for ($row =1; $row<=$n; row++){
+                echo "<tr>";
+                echo "<th>Row $row</th>";
+                for ($col =1; $col<=$n; $col++){
+                    echo "<td> . ($row * $col) . "</td>";
+                }
+                echo "</tr>";
+            }
+            echo </table>;
+            }
+        
+        
+    ?>
+</body>
+
+</html>
