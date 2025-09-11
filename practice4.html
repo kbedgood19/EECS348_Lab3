@@ -14,29 +14,33 @@
     </form>
     
 
-    <?php
-        if($_SERVER["REQUEST"]== "POST"){
-            $n = intval($_POST["number"]);
-            echo "<table>";
-            echo "<tr><th></th>";
+       <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $n = intval($_POST["mult_table"]);
 
-            for ($col =1; $col<=$n; $col++){
-                echo "<th>Col $col</th>";
+        echo "<h3>Multiplication Table up to $n × $n</h3>";
+        echo "<table border='1' cellpadding='5' cellspacing='0'>";
+
+        // Top row header
+        echo "<tr><th></th>";
+        for ($col = 1; $col <= $n; $col++) {
+            echo "<th>Col $col</th>";
+        }
+        echo "</tr>";
+
+        // Table body
+        for ($row = 1; $row <= $n; $row++) {
+            echo "<tr>";
+            echo "<th>Row $row</th>";
+            for ($col = 1; $col <= $n; $col++) {
+                $product = $row * $col;
+                echo "<td>$product</td>";
             }
             echo "</tr>";
+        }
 
-            for ($row =1; $row<=$n; row++){
-                echo "<tr>";
-                echo "<th>Row $row</th>";
-                for ($col =1; $col<=$n; $col++){
-                    echo "<td> . ($row * $col) . "</td>";
-                }
-                echo "</tr>";
-            }
-            echo </table>;
-            }
-        
-        
+        echo "</table>";
+    }
     ?>
 </body>
 
