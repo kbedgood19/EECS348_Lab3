@@ -10,7 +10,25 @@
     Second Password: <input type="text" id="pass2" value=""> <br>
 
     <script type="text/javascript" src="functions.js"></script>
-    <button onclick="validate()">Validate Your Passwords</button> <br>
+    <button onclick="check_password()">Validate Your Passwords</button> <br>
+
+    <script>
+        function check_password(){
+            var pass1 = document.getElementById("pass1").value;
+            var pass2 = document.getElementById("pass2").value;
+
+            if (pass1.length < 8){
+                alert("The password needs to be at least 8 characters long!");
+                return;
+            }
+            if(pass1 !== pass2){
+                alert("Passwords do not match!");
+            }else{
+                alert("Passwords match and are at least 8 characters!")
+            }
+        }
+
+    </script>
 </body>
 
 

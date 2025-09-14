@@ -4,17 +4,50 @@
 <head>
     <h1>EECS 348 Lab Three Practice 2</h1>
 </head>
-
+<style>
+    #alter_text{border-style: solid;
+                border-width: 5px;}
+    label {display: block;
+        padding: 5px;}
+</style>
 <body>
     
    <div id="alter_text">
     <p>This paragraph will change color depending on the rgb values entered! Enter a number between 0-255 and the width boarder!</p>
    </div>
 
-   <label>Boarder R:<input type="number" id="b_w" min="0" max="255"></label>
+   <!-- Border -->
+   <label>Boarder R:<input type="number" id="b_r" min="0" max="255"></label>
    <label>Boarder G:<input type="number" id="b_g" min="0" max="255"></label>
    <label>Boarder B:<input type="number" id="b_b" min="0" max="255"></label>
+   <!-- Border width -->
    <label>Boarder Width:<input type="number" id="width"></label>
+   <!-- Background -->
+   <label>Background R: <input type="number" id="bg_r" min="0" max="255"></label>
+   <label>Background G: <input type="number" id="bg_g" min="0" max="255"></label>
+   <label>Background B: <input type="number" id="bg_b" min="0" max="255"></label>
+
+   <button onclick="color_change()">Change the color!</button>
+   <script>
+    function color_change(){
+        // border
+        var b_r = document.getElementById("b_r").value;
+        var b_g = document.getElementById("b_g").value;
+        var b_b = document.getElementById("b_b").value;
+        //width
+        var width = document.getElementById("width").value;
+        //background
+        var bg_r = document.getElementById("bg_r").value;
+        var bg_g = document.getElementById("bg_g").value;
+        var bg_b = document.getElementById("bg_b").value;
+        //paragraph to change
+        var paragraph = document.getElementById("alter_text");
+
+        paragraph.style.borderColor =`rgb(${b_r},${b_g},${b_b})`;
+        paragraph.style.borderWidth = width +"px";
+        paragraph.style.backgroundColor =`rgb(${bg_r},${bg_g},${bg_b})`;
+    }
+   </script>
 </body>
 
 </html>
