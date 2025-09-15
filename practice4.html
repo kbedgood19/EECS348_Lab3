@@ -6,35 +6,35 @@
 </head>
 
 <body>
-    <h2>PHP Multiplication Table</h2>
+    <p>Size of multiplication table:</p>
     <form method ="post">
 
-        <input type="number" name="mult_table">
+        <input type="number" name="table">
         <input type ="submit">
     </form>
     
 
        <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $n = intval($_POST["mult_table"]);
+        $n = intval($_POST["table"]);
 
-        echo "<h3>Multiplication Table up to $n × $n</h3>";
-        echo "<table border='1' cellpadding='5' cellspacing='0'>";
+        
+        echo "<table border='2'>";
 
-        // Top row header
+        // Top row 
         echo "<tr><th></th>";
         for ($col = 1; $col <= $n; $col++) {
-            echo "<th>Col $col</th>";
+            echo "<th>$col</th>";
         }
         echo "</tr>";
 
         // Table body
         for ($row = 1; $row <= $n; $row++) {
             echo "<tr>";
-            echo "<th>Row $row</th>";
+            echo "<th>$row</th>";
             for ($col = 1; $col <= $n; $col++) {
-                $product = $row * $col;
-                echo "<td>$product</td>";
+                $result= $row * $col;
+                echo "<td>$result</td>";
             }
             echo "</tr>";
         }
